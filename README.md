@@ -71,3 +71,57 @@ This project includes:
 - **Stored procedures and views**
 - **Role-based security**
 - **Data integrity and backup routines**
+
+### Run the SQL Script
+
+Execute the script provided in **`Database-Final-code.sql`**:
+```sql
+:r Database-Final-code.sql
+- This will create all tables, relationships, stored procedures, views, and sample data.
+
+### Test Stored Procedures
+
+## Example:
+
+- EXEC Insert_Mosque_With_Imam 
+     @MosqueID = 100, 
+     @MosqueName = 'King Abdullah Mosque', 
+     @City = 'Amman', 
+     @Neighborhood = 'Abdali',
+     @Street = 'Downtown', 
+     @Capacity = 2000, 
+     @Housing = 'Yes',
+     @ImamSSN = 1001, 
+     @ImamName = 'Ahmad Khaled', 
+     @DOB = '1980-02-20',
+     @Salary = 800, 
+     @MaritalStatus = 'Married';
+
+### Test Views
+SELECT * FROM Emam_Announcement;
+SELECT * FROM Emam_Outside_Job;
+
+### 📘 Documentation
+
+- Technical Report: Explains the logical and physical database design, ERD, and normalization process.
+
+- User Document: Provides instructions for each user role, screenshots, and FAQs.
+
+### ❓ FAQ
+
+Q1: Who can access the database?
+A1: Only authorized users (Minister, Employee, Imam) with defined logins and permissions.
+
+Q2: How can I add a new Imam?
+A2: Use the Insert_Mosque_With_Imam procedure or manually insert via SQL statements.
+
+Q3: How do I update Imam salary?
+A3: Execute the Update_Emam_Salary procedure with Imam SSN and new salary value.
+
+Q4: How can I view announcements for a specific Imam?
+
+SELECT * FROM Emam_Announcement WHERE emam_SSN = 1001;
+
+###👨‍💻 Author
+
+- Abdullah Hisham Rashid
